@@ -105,7 +105,7 @@ function DisplayTodos () {
       input.removeAttribute('readonly');
       input.focus();
       input.addEventListener('blur', e => {
-        input.setAttribute('readonly');
+        input.setAttribute('readonly', true);
         todo.content = e.target.value;
         localStorage.setItem('todos', JSON.stringify(todos));
         DisplayTodos();
