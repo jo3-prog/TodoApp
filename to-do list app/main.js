@@ -3,8 +3,7 @@ window.addEventListener('load', () => {
   const nameInput = document.querySelector('#name');
   const newTodoForm = document.querySelector('#new-todo-form');
 
-  const username = localStorage.getItem('username') || '';
-
+  const username = localStorage.getItem('username');
   nameInput.value = username;
 
   nameInput.addEventListener('change', e => {
@@ -21,11 +20,18 @@ window.addEventListener('load', () => {
       createdAt: new Date().getTime()
     }
 
-    todos.unshift(todo);
+    if ((todo.content != '') && (todo.category != '')) {
+      todos.unshift(todo);   
 
-    localStorage.setItem('todos', JSON.stringify(todos));
+      localStorage.setItem('todos', JSON.stringify(todos));
 
-    e.target.reset();
+      e.target.reset();
+      document.getElementById('prompt1').innerHTML = "";
+      document.getElementById('prompt2').innerHTML = "";
+    } else {
+      document.getElementById('prompt1').innerHTML = "Please input a  task!";
+      document.getElementById('prompt2').innerHTML = "Please select a category!";
+    }
 
     DisplayTodos();
   })
@@ -112,4 +118,9 @@ function DisplayTodos () {
       DisplayTodos();
     })
   })
+}
+
+const viewTodo = document.getElementById('view-todo') 
+viewTodo.onclick = () => {
+  DisplayTodos();
 }

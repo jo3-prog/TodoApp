@@ -18,7 +18,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'montserrat';
-  /* outline: 1px solid limegreen; */
+  /*outline: 1px solid limegreen; */
 }
 
 input:not([type="radio"]):not([type="checkbox"]), button {
@@ -80,14 +80,14 @@ h4 {
   background-color: white;
   border-radius: 0.5rem;
   box-shadow: var(--shadow);
-  margin-bottom: 1.5rem;
+  margin-bottom: .1rem;
 }
 
 .create-todo .options {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: .1rem;
 }
 
 .create-todo .options label {
@@ -151,8 +151,13 @@ input:checked ~ .bubble::after {
   margin-top: 1rem;
 }
 
+.create-todo .btns {
+  display: flex;
+  gap: 1em;
+}
+
 .create-todo input[type="submit"] {
-  display: block;
+  display: inline-block;
   width: 100%;
   font-size: 1.125rem;
   padding: 1rem 1.5rem;
@@ -165,6 +170,23 @@ input:checked ~ .bubble::after {
 }
 
 .create-todo input[type="submit"]:hover {
+  opacity: 0.75;
+}
+
+.create-todo button {
+  display: inline-block;
+  width: 100%;
+  font-size: 1.125rem;
+  padding: 1rem 1.5rem;
+  color: white;
+  background-color: var(--business);
+  border-radius: 0.5rem;
+  box-shadow: var(--personal-glow);
+  cursor: pointer;
+  transition: 0.12s ease-in-out;
+}
+
+.create-todo button:hover {
   opacity: 0.75;
 }
 
@@ -227,4 +249,10 @@ input:checked ~ .bubble::after {
 .todo-item.done .todo-content input {
   text-decoration: line-through;
   color: var(--grey);
+}
+
+p {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 1.5rem;
 }
